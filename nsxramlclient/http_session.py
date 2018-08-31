@@ -43,7 +43,7 @@ def retry(catchexception, tries=4, wait=3, backofftime=2):
                 try:
                     return f(*args, **kwargs)
                 except catchexception, e:
-                    print 'Error {} occured, retry in {} seconds'.format(str(e), innerwait)
+                    print('Error {} occured, retry in {} seconds'.format(str(e), innerwait))
                     time.sleep(innerwait)
                     innerwait *= backofftime
                     innertries -= 1
@@ -94,7 +94,7 @@ class Session(object):
                 headers = {'Content-Type': 'application/xml'}
 
             if self._debug:
-                print md.parseString(data).toprettyxml()
+                print(md.parseString(data).toprettyxml())
 
         response = self._session.request(method, url, headers=headers, params=params, data=data)
 
